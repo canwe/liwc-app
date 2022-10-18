@@ -1,4 +1,6 @@
 from flask import Flask, request
+import nltk
+nltk.download('punkt', download_dir='/tmp/nltk_data')
 import liwc.liwcExtractor as le
 
 LIWC = le.liwcExtractor(liwcPath='./data/LIWC2007_English100131.dic')
