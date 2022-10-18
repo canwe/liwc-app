@@ -1,7 +1,7 @@
 ''' Make LIWC feature extractor into class
 '''
 import nltk
-nltk.download('punkt')
+nltk.download('punkt', download_dir='/tmp/nltk_data')
 import re
 import pickle
 
