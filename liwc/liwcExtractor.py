@@ -56,12 +56,12 @@ class liwcExtractor():
         if tokenizer is None:
             self.tokenizer = self.nltk_tokenize
         if liwcPath is not None:
-            self.dictionary = makeLIWCDictionary(liwcPath, './liwcDictionary.pickle')
+            self.dictionary = makeLIWCDictionary(liwcPath, '/tmp/liwcDictionary.pickle')
             self.lookup = self.dictionary['lookup']
             self.categories = self.dictionary['categories']
             self.mapCategoriesToNumbers = self.dictionary['cat_to_num']
         elif self.dictionary == None:
-            self.dictionary = makeLIWCDictionary(liwcPath, './liwcDictionary.pickle')
+            self.dictionary = makeLIWCDictionary(liwcPath, '/tmp/liwcDictionary.pickle')
             self.lookup = self.dictionary['lookup']
             self.categories = self.dictionary['categories']
             self.mapCategoriesToNumbers = self.dictionary['cat_to_num']
