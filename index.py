@@ -1,10 +1,13 @@
 from flask import Flask, request
+from flask_cors import CORS
 import liwc.liwcExtractor as le
 
 LIWC = le.liwcExtractor(liwcPath='./data/LIWC2007_English100131.dic')
 categories = {c: i for i, c in enumerate(LIWC.getCategoryIndeces())}
 
 app = Flask(__name__)
+
+CORS(app)
 
 
 @app.route('/api/analyze', methods=['POST'])
@@ -13,4 +16,4 @@ def test():
     tweet = request_data['tweet']
     features_r = request_data['features']
     features_e = LIWC.extractFromDoc(tweet or '')
-    return {f: features_e[categories[f]]/float(features_e[66]) for f in features_r if f in categories}
+    return {f: features_e[categories[f]] / float(features_e[66]) for f in features_r if f in categories}
